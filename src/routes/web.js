@@ -1,6 +1,9 @@
 // IMPORTA O MÓDULO ROUTER DO EXPRESS
 const router = require('express').Router()
 
+const BookController =
+require('../controllers/BookController')
+
 //ROTAS
 //GET    /books               => Listar todos os livros
 //GET    /books/new           => Exibir o form
@@ -16,6 +19,8 @@ router.get('/', (req, res) => {
   router.get('/books/new', (req, res) => {
     res.render('pages/book_form')
   })
+
+  router.post('/books/new', BookController.store);
 
 //EXPORTA AS ROTAS PARA OUTRO ARQUIVO
 module.exports = router
